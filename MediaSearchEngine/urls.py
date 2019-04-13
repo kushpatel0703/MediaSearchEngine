@@ -17,7 +17,8 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('', include('searchPage.urls')),
     path('admin/', admin.site.urls),
-    path('search', include('searchPage.urls'))
+    path('', include('searchPage.urls')),
+    path('search', include('searchPage.urls')),
+    path('tv', include('tvInfoPage.urls'))
 ]
