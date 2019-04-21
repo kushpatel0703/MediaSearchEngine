@@ -56,7 +56,9 @@ ROOT_URLCONF = 'MediaSearchEngine.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'searchPage/templates/searchPage')
+            ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

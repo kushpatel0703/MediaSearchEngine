@@ -20,5 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('searchPage.urls')),
     path('search', include('searchPage.urls')),
-    path('tv', include('tvInfoPage.urls'))
+    path('tv/', include('tvInfoPage.urls'))
 ]
