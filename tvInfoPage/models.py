@@ -8,7 +8,7 @@ class Locations(models.Model):
 
 class Tv_details(models.Model):
     title = models.CharField(max_length = 200)
-    imdb_id = models.IntegerField()
+    imdb_id = models.CharField(max_length = 200)
     image_url = models.URLField(max_length = 200)
     description = models.TextField()
     rotten_tomatoes_critic = models.IntegerField()
