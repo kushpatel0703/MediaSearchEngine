@@ -1,18 +1,13 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.core.exceptions import *
-import omdb
+from searchPage.parse import parse_omdb
+
 
 def index(request):
-    omdb.set_default('apikey', 'b5e3df7f')
     if request.method == 'POST':
-        to_display = []
-
         search_id = request.POST.get('textfield', None)
-        ret = omdb.search(search_id)
-
-        for elem in ret:
-            to_display.append(elem)
+        ret = parse(search_id)
 
         html = (to_display)
         return HttpResponse(html)
