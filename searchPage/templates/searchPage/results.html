@@ -1,5 +1,9 @@
 <ul>
   {% for title in data %}
-    <h1><img src= {{ title.3 }} alt="Image Not Found!" width = "160" height = "200" /></h1>
+    <a href= {{"/tv/"|add:title.2 }}>
+      <img src= {{ title.3 }} alt="Image Not Found!" width = "160" height = "200" />
+    </a>
+    <h1> {{ title.0 }} </h1>
+    <h3> ({{ title.1 }}) </h3>
   {% endfor %}
 </ul>
