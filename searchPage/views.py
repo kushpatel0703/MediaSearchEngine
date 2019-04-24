@@ -7,9 +7,12 @@ from searchPage.parse import parse_omdb
 def index(request):
     if request.method == 'POST':
         search_id = request.POST.get('textfield', None)
-        ret = parse(search_id)
+        data = parse_omdb(search_id)
 
-        html = (to_display)
-        return HttpResponse(html)
+        context = {
+            'data' : data
+        }
+        
+        return render(request, 'searchPage/results.html', context)
     else:
-        return render(request, 'index.html')
+        return render(request, 'searchPage/index.html')
