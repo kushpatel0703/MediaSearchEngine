@@ -23,6 +23,8 @@ def collectData(imdb_id):
         mg = Tv_genre.objects.create(tv_id = inst, genre_id = g)
         mg.save()
 
+    #work on location stuff now
+
 
 
 
