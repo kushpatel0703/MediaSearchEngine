@@ -11,8 +11,6 @@ class Tv_details(models.Model):
     imdb_id = models.CharField(max_length = 200)
     image_url = models.URLField(max_length = 200)
     description = models.TextField()
-    rotten_tomatoes_critic = models.IntegerField()
-    rotten_tomatoes_audeince = models.IntegerField()
     imdb_rating = models.DecimalField(max_digits = 2, decimal_places = 1)
 
 class Watch_location(models.Model):
