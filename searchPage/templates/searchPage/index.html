@@ -1,6 +1,82 @@
-<form method="POST" action="/search/">
-{% csrf_token %}
-<input type="text" name="textfield">
+<html>
+<head>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+</head>
+<title>Media Search Engine</title>
+<body>
+  <div class="outer">
+    <div class="middle">
+      <div class="inner">
+        <h1>Media Search Engine</h1>
+        <div class="search">
+          <form method="POST" action="/search/">
+          {% csrf_token %}
+          <input type="text" name="textfield" size=75 placeholder="Enter search terms here"><button type="submit"><i class="fa fa-search"></i></button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
 
-<button type="submit">Upload text</button>
-</form>
+<style>
+body {
+  background-color: #1e2129;
+  display: flex;
+}
+
+h1 {
+  color: #0bd2e0;
+}
+
+.outer {
+  display: table;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.middle {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.inner {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1000px;
+  /*whatever width you want*/
+}
+
+.search {
+  position: relative;
+}
+
+.inner .search input[type=text] {
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 17px;
+    border: none;
+    border-radius: 25px;
+  }
+
+.inner .search button {
+    padding: 6px 10px;
+    margin-top: 8px;
+    font-size: 20px;
+    left: 806px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    background-color: #0bd2e0;
+    position: absolute;
+  }
+
+.inner button:hover {
+    opacity: 0.8;
+  }
+</style>
+</html>
