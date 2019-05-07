@@ -1,4 +1,5 @@
 import omdb
+from random import shuffle
 from .models import *
 
 def collectData(imdb_id):
@@ -31,3 +32,23 @@ def collectData(imdb_id):
         g = Genres.objects.get(genre=genre)
         mg = Tv_genre.objects.create(tv_id = inst, genre_id = g)
         mg.save()
+
+def genreRetrieve(genre_list, listing):
+
+    r = set()
+    for g in genre_list:
+        t = list(Tv_genre.objects.filter(genre_id = g))
+        for elem in t:
+            r.add(elem)
+
+    r = list(r)
+
+    new_r = set()
+    for elem in r:
+        new_r.add(Tv_details.objects.get(imdb_id = elem.tv_id.imdb_id))
+
+    new_r = list(new_r)
+    new_r.remove(listing)
+    shuffle(new_r)
+
+    return new_r

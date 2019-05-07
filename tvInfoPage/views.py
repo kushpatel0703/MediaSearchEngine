@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from tvInfoPage.collect import collectData
+from tvInfoPage.collect import collectData, genreRetrieve
 
 from .models import *
 
@@ -18,12 +18,13 @@ def details(request, imdb_id):
 
     genre_list = []
     for rel in relations:
-        genre_list.append(rel.genre_id.genre)
+        genre_list.append(rel.genre_id)
 
-    print(genre_list)
+    rec = genreRetrieve(genre_list, listing)
 
     context = {
-                'listing' : listing
+                'listing' : listing,
+                'rec'     : rec
             }
 
     return render(request, 'tvInfoPage/index.html', context)
