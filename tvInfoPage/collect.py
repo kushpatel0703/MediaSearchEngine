@@ -7,7 +7,16 @@ def collectData(imdb_id):
 
     print(info)
 
-    inst = Tv_details.objects.create(imdb_id = imdb_id, title = info['title'], image_url = info['poster'], description = info['plot'], imdb_rating = info['imdb_rating'])
+    inst = Tv_details.objects.create(
+        imdb_id = imdb_id,
+        title = info['title'],
+        image_url = info['poster'],
+        description = info['plot'],
+        imdb_rating = info['imdb_rating'],
+        language = info['language'],
+        country = info['country'],
+        year = info['year'],
+        tv_rating = info['rated'])
     inst.save()
 
     genres = info['genre'].split(', ')
@@ -22,10 +31,3 @@ def collectData(imdb_id):
         g = Genres.objects.get(genre=genre)
         mg = Tv_genre.objects.create(tv_id = inst, genre_id = g)
         mg.save()
-
-    #work on location stuff now
-
-
-
-
-    return 0

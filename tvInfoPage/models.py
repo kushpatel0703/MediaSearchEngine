@@ -6,28 +6,19 @@ class Genres(models.Model):
     def __str__(self):
         return self.genre
 
-class Locations(models.Model):
-    location = models.CharField(max_length = 200)
-
-    def __str__(self):
-        return self.location
-
 class Tv_details(models.Model):
-    title = models.CharField(max_length = 200)
-    imdb_id = models.CharField(max_length = 200)
-    image_url = models.URLField(max_length = 200)
-    description = models.TextField()
-    imdb_rating = models.DecimalField(max_digits = 2, decimal_places = 1)
+    title = models.CharField(max_length = 200, default = "none")
+    year = models.CharField(max_length = 200, default = "none")
+    country = models.CharField(max_length = 200, default = "none")
+    language = models.CharField(max_length = 200, default = "none")
+    imdb_id = models.CharField(max_length = 200, default = "none")
+    image_url = models.URLField(max_length = 200, default = "none")
+    description = models.TextField(default = "none")
+    tv_rating = models.CharField(max_length = 200, default = "none")
+    imdb_rating = models.DecimalField(max_digits = 2, decimal_places = 1, default = "none")
 
     def __str__(self):
         return self.title
-
-class Watch_location(models.Model):
-    tv_id = models.ForeignKey(Tv_details, on_delete = models.CASCADE)
-    location_id = models.ForeignKey(Locations, on_delete = models.CASCADE)
-
-    def __str__(self):
-        return self.tv_id.title + " - " + self.location_id.location
 
 class Tv_genre(models.Model):
     tv_id = models.ForeignKey(Tv_details, on_delete = models.CASCADE)
