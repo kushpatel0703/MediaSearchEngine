@@ -5,6 +5,9 @@
 <title>Results</title>
 <body>
   <div class="topbar">
+    <div class="logo">
+      <a href="/search/"><h3>Media Search Engine</h3></a>
+    </div>
     <div class="search">
       <form method="POST" action="/search/">
       {% csrf_token %}
@@ -31,8 +34,27 @@ body {
   }
 
 .topbar {
-    overflow: hidden;
-  }
+  overflow: hidden;
+}
+
+.topbar .logo {
+  float: left;
+}
+
+.topbar .logo h3 {
+  text-decoration: none;
+  color: #fff;
+  font-family: monospace;
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  margin-top: 3.5%;
+}
+
+.topbar .logo a {
+  text-decoration: none;
+}
 
 .topbar .search {
     float: right;
