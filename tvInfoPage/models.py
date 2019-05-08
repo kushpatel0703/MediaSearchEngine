@@ -15,7 +15,7 @@ class Tv_details(models.Model):
     image_url = models.URLField(max_length = 200, default = "none")
     description = models.TextField(default = "none")
     tv_rating = models.CharField(max_length = 200, default = "none")
-    imdb_rating = models.DecimalField(max_digits = 2, decimal_places = 1, default = "none")
+    imdb_rating = models.CharField(max_length = 200, default = "none")
 
     def __str__(self):
         return self.title

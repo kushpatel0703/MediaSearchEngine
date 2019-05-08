@@ -51,4 +51,4 @@ def genreRetrieve(genre_list, listing):
     new_r.remove(listing)
     shuffle(new_r)
 
-    return new_r
+    return new_r[:5]

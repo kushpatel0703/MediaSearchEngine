@@ -24,7 +24,8 @@ def details(request, imdb_id):
 
     context = {
                 'listing' : listing,
-                'rec'     : rec
+                'rec'     : rec,
+                'genre'   : genre_list
             }
 
     return render(request, 'tvInfoPage/index.html', context)
